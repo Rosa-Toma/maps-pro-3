@@ -4,16 +4,25 @@ import { GlobalStyles } from "./styles/global";
 import { useTheme } from "./styles/useTheme";
 import { useContext } from "react";
 import { ThemeContext } from "styled-components";
-import styles from "./App.module.css";
 import logoLight from "./assets/logoLight.webp";
 import logoDark from "./assets/logoDark.webp";
 
 function App() {
   const [theme, toggleTheme] = useTheme();
+  const Layout = styled.div`
+    display: grid;
+    grid-template-areas:
+      "header header"
+      "sidebar toolbar"
+      "sidebar mapView";
+
+    grid-template-columns: 300px calc(100vw - 300px);
+    grid-template-rows: 50px 100px calc(100vh - 150px);
+  `;
   return (
     <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
       <GlobalStyles />
-      <div className={styles.app}>
+      <Layout>
         <Header>
           <button onClick={toggleTheme}>tooggggllle</button>
           <Logo />
@@ -44,22 +53,34 @@ function App() {
           <ToolSection></ToolSection>
         </Toolbar>
         <MapView />
-      </div>
+      </Layout>
     </ThemeProvider>
   );
 }
 
 function Header({ children }) {
-  return <div className={styles.header}>{children}</div>;
+  const Layout = styled.header`
+    grid-area: header;
+    border: solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  `;
+
+  return <Layout>{children}</Layout>;
 }
 
 function Logo() {
   const themeContext = useContext(ThemeContext);
   const backgroundColor = themeContext.background.primary;
 
+  const Img = styled.img`
+    width: 170px;
+  `;
+
   return (
-    <div className={styles.logo}>
-      <img
+    <div>
+      <Img
         src={backgroundColor === "#FAFAFA" ? logoDark : logoLight}
         alt="logo"
       />
@@ -68,7 +89,12 @@ function Logo() {
 }
 
 function HeaderTabSection({ children }) {
-  return <div className={styles.headerTabSection}>{children}</div>;
+  const Container = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    width: 500px;
+  `;
+  return <Container>{children}</Container>;
 }
 
 function Tab() {
@@ -93,19 +119,34 @@ function Tab() {
 }
 
 function Sidebar({ children }) {
-  return <div className={styles.sidebar}>{children}</div>;
+  const Layout = styled.div`
+    grid-area: sidebar;
+    border: solid;
+  `;
+  return <Layout>{children}</Layout>;
 }
 
 function SidebarTabSection({ children }) {
-  return <div className={styles.sidebarTabSection}>{children}</div>;
+  const Container = styled.div`
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+  `;
+  return <Container>{children}</Container>;
 }
 
 function Toolbar({ children }) {
-  return <div className={styles.toolbar}>{children}</div>;
+  const Layout = styled.div`
+    grid-area: toolbar;
+    border: solid;
+  `;
+  return <Layout>{children}</Layout>;
 }
 
 function ToolSection({ children }) {
-  return <div className={styles.toolSection}>{children}</div>;
+  return <div>{children}</div>;
 }
 
 function Tool({ title, icon, idDropdown }) {
@@ -159,10 +200,14 @@ function Tool({ title, icon, idDropdown }) {
 }
 
 function MapView() {
+  const Layout = styled.div`
+    grid-area: mapView;
+    border: solid;
+  `;
   return (
-    <div className={styles.mapView}>
+    <Layout>
       <h1>mapview</h1>
-    </div>
+    </Layout>
   );
 }
 
