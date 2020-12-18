@@ -2,7 +2,7 @@ import { useContext } from "react";
 import { ThemeContext } from "styled-components";
 import logoLight from "assets/logoLight.webp";
 import logoDark from "assets/logoDark.webp";
-import { LogoImg } from "./styles/LogoImg";
+import { HeaderLogoImg } from "styles/Header/HeaderLogoImg";
 
 export default function HeaderLogo() {
   const themeContext = useContext(ThemeContext);
@@ -10,7 +10,7 @@ export default function HeaderLogo() {
 
   return (
     <div>
-      <LogoImg
+      <HeaderLogoImg
         src={backgroundColor === "#FAFAFA" ? logoDark : logoLight}
         alt="logo"
       />

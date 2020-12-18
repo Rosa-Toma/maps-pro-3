@@ -1,6 +1,6 @@
-import { ToolButton } from "./styles/ToolButton";
-import { ToolIcon } from "./styles/ToolIcon";
-import { ToolTitle } from "./styles/ToolTitle";
+import { ToolButton } from "styles/Toolbar/ToolButton";
+import { ToolIcon } from "styles/Toolbar/ToolIcon";
+import { ToolTitle } from "styles/Toolbar/ToolTitle";
 
 export default function Tool({ title, icon, idDropdown, onClick }) {
   return (

@@ -1,5 +1,5 @@
-import { ToolbarToolsContainer } from "./styles/ToolbarToolsContainer";
-import { ToolbarToolsTitle } from "./styles/ToolbarToolsTitle";
+import { ToolbarToolsContainer } from "styles/Toolbar/ToolbarToolsContainer";
+import { ToolbarToolsTitle } from "styles/Toolbar/ToolbarToolsTitle";
 
 export default function ToolbarTools({ children, title }) {
   return (

@@ -7,5 +7,5 @@ export const ToolbarLayout = styled.div`
   align-items: center;
 
   box-shadow: 2px 2px 2px ${({ theme }) => theme.divider};
-  margin-bottom: 4px;
+  margin-bottom: 2px;
 `;

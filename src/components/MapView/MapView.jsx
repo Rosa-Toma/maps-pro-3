@@ -1,9 +1,11 @@
-import { MapViewLayout } from "./styles/MapViewLayout";
+import { MapViewLayout } from "styles/MapView/MapViewLayout";
+import { useContext, useEffect } from "react";
+import { MapContext } from "context/MapContext";
 
 export default function MapView() {
-  return (
-    <MapViewLayout>
-      <h1>mapview</h1>
-    </MapViewLayout>
-  );
+  const map = useContext(MapContext);
+  useEffect(() => {
+    map.setTarget("map");
+  }, [map]);
+  return <MapViewLayout id="map"></MapViewLayout>;
 }

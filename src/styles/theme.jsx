@@ -2,7 +2,7 @@ export const darkTheme = {
   text: {
     primary: "#FFF",
     secondary: "rgba(255, 255, 255, 0.7)",
-    disabled: "rgba(255, 255, 255, 0.5)"
+    disabled: "rgba(255, 255, 255, 0.5)",
   },
   action: {
     active: "#FFF",
@@ -15,6 +15,9 @@ export const darkTheme = {
     primary: "#303030",
     secondary: "#424242",
   },
+  map: {
+    filter: "invert(100%);",
+  },
   divider: "rgba(255, 255, 255, 0.12)",
 };
 
@@ -22,7 +25,7 @@ export const lightTheme = {
   text: {
     primary: "rgba(0, 0, 0, 0.87)",
     secondary: "rgba(0, 0, 0, 0.54)",
-    disabled: "rgba(0, 0, 0, 0.38)"
+    disabled: "rgba(0, 0, 0, 0.38)",
   },
   action: {
     active: "rgba(0, 0, 0, 0.54)",
@@ -34,6 +37,9 @@ export const lightTheme = {
   background: {
     primary: "#FAFAFA",
     secondary: "#FFF",
+  },
+  map: {
+    filter: "invert(0%);",
   },
   divider: "rgba(0, 0, 0, 0.12)",
 };

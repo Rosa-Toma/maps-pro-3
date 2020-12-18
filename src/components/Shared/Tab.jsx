@@ -1,4 +1,4 @@
-import { TabButton } from "./styles/TabButton";
+import { TabButton } from "styles/Shared/TabButton";
 
 export default function Tab() {
   return (
