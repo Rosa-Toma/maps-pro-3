@@ -3,9 +3,9 @@ import { ToolbarToolsTitle } from "styles/Toolbar/ToolbarToolsTitle";
 
 export default function ToolbarTools({ children, title }) {
   return (
-    <ToolbarToolsContainer>
-      {children}
+    <div>
       <ToolbarToolsTitle>{title}</ToolbarToolsTitle>
-    </ToolbarToolsContainer>
+      <ToolbarToolsContainer>{children}</ToolbarToolsContainer>
+    </div>
   );
 }

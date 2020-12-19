@@ -2,10 +2,9 @@ import styled from "styled-components";
 
 export const ToolbarToolsTitle = styled.h1`
   color: ${({ theme }) => theme.text.primary};
-
   text-align: center;
 
-  font-size: 1.2em;
+  font-size: .8em;
 
   letter-spacing: 1px;
 

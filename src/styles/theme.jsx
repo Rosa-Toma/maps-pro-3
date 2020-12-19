@@ -12,13 +12,13 @@ export const darkTheme = {
     disabledBackground: "rgba(255, 255, 255, 0.12)",
   },
   background: {
-    primary: "#303030",
-    secondary: "#424242",
+    primary: "#212121",
+    secondary: "#333333",
   },
   map: {
     filter: "invert(100%);",
   },
-  divider: "rgba(255, 255, 255, 0.12)",
+  divider: "rgb(0, 0, 0, 0.25)",
 };
 
 export const lightTheme = {

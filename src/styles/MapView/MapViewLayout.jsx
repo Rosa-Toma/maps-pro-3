@@ -2,6 +2,6 @@ import styled from "styled-components";
 
 export const MapViewLayout = styled.div`
   grid-area: mapView;
-  margin-left: 3px;
+  z-index: 1;
   filter: ${({ theme }) => theme.map.filter};
 `;

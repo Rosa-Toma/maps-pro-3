@@ -12,8 +12,12 @@ export const ToolButton = styled.button`
   width: 80px;
   padding: 5px;
   outline: none;
-  background-position: center;
+
+  margin: 3px 3px 3px 3px;
+
   &:hover {
     background-color: ${({ theme }) => theme.action.hover};
+    background-position: center;
+    transition: background 0.2s;
   }
 `;
