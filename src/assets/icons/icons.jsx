@@ -18,7 +18,7 @@ export const icons = {
     refaire: <GrRedo size="1.5em" />,
 
     panoter: <FaRegHandPaper size="1.5em" />,
-    zoomer: <AiOutlineZoomIn size="1.5em" size="1.5em" />,
+    zoomer: <AiOutlineZoomIn size="1.5em" />,
     dezoomer: <AiOutlineZoomOut size="1.5em" />,
     recentrer: <AiOutlinePicCenter size="1.5em" />,
 
