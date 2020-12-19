@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useTheme = () => {
+const useTheme = () => {
   const [theme, setTheme] = useState("light");
 
   const toggleTheme = () => {
@@ -9,3 +9,6 @@ export const useTheme = () => {
 
   return [theme, toggleTheme];
 };
+
+export default useTheme;
+
