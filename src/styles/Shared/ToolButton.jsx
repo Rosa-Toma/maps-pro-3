@@ -6,6 +6,7 @@ export const ToolButton = styled.button`
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  color: ${({ theme }) => theme.text.primary};
   border: solid 1px ${({ theme }) => theme.divider};
   box-shadow: 1px 1px 1px ${({ theme }) => theme.divider};
   background-color: ${({ theme }) => theme.background.secondary};
