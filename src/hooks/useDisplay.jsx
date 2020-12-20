@@ -20,7 +20,7 @@ const useDisplay = (setIconFunction) => {
     };
 
     const geoserverBackground = () => {
-        setIconFunction(icons.vue.fondGeoserver);
+        setIconFunction(icons.vue.fondGeoserveur);
         console.log("geoserverBackground");
     };
 
