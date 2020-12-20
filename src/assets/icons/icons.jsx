@@ -6,6 +6,7 @@ import { FaBuffer, FaRegHandPaper } from "react-icons/fa";
 import { FiEdit, FiMousePointer } from "react-icons/fi";
 import { GiSightDisabled } from "react-icons/gi";
 import { BiMoon, BiSun } from "react-icons/bi";
+import { VscChevronDown } from "react-icons/vsc";
 
 export const icons = {
     selection: {
@@ -61,4 +62,5 @@ export const icons = {
         sun: <BiSun size="1.5em" />,
         moon: <BiMoon size="1.5em" />,
     },
+    dropdown: <VscChevronDown size="1.5em" />,
 };

@@ -1,27 +1,27 @@
 import { icons } from "assets/icons/icons";
 
 const useSnap = (setIconFunction) => {
-    const inactive = () => {
+    const inactiveSnap = () => {
         setIconFunction(icons.inactive.inactive);
         console.log("inactive");
     };
 
-    const point = () => {
+    const pointSnap = () => {
         setIconFunction(icons.inactive.point);
         console.log("point");
     };
 
-    const segment = () => {
+    const segmentSnap = () => {
         setIconFunction(icons.inactive.segment);
         console.log("segment");
     };
 
-    const polyline = () => {
+    const polylineSnap = () => {
         setIconFunction(icons.inactive.polyligne);
         console.log("polyline");
     };
 
-    return [inactive, point, segment, polyline];
+    return [inactiveSnap, pointSnap, segmentSnap, polylineSnap];
 };
 
 export default useSnap;
