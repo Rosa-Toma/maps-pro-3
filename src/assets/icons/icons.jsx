@@ -1,12 +1,13 @@
-import { BsCursor, BsSquare, BsCircle, BsArrowsMove, BsSlashSquare, BsTriangle } from "react-icons/bs";
-import { AiOutlineSelect, AiOutlinePicCenter, AiOutlineLine, AiOutlineSwapRight, AiOutlineZoomIn, AiOutlineZoomOut } from "react-icons/ai";
+import { BsCursor, BsSquare, BsCircle, BsArrowsMove, BsSlashSquare, BsTriangle, BsMap, BsPen } from "react-icons/bs";
+import { AiOutlineSelect, AiOutlinePicCenter, AiOutlineLine, AiOutlineSwapRight, AiOutlineZoomIn, AiOutlineZoomOut, AiOutlineStock, AiOutlineCompass } from "react-icons/ai";
 import { GrUndo, GrRedo } from "react-icons/gr";
-import { RiRulerLine, RiGuideFill } from "react-icons/ri";
-import { FaBuffer, FaRegHandPaper } from "react-icons/fa";
+import { RiRulerLine, RiGuideFill, RiGitCommitLine } from "react-icons/ri";
+import { FaBuffer, FaRegHandPaper, FaStreetView } from "react-icons/fa";
 import { FiEdit, FiMousePointer } from "react-icons/fi";
 import { GiSightDisabled } from "react-icons/gi";
 import { BiMoon, BiSun } from "react-icons/bi";
 import { VscChevronDown } from "react-icons/vsc";
+import { DiBingSmall } from "react-icons/di";
 
 export const icons = {
     selection: {
@@ -39,6 +40,7 @@ export const icons = {
     },
 
     dessin: {
+        base: <BsPen size="1.5em" />,
         cercle: <BsCircle size="1.5em" />,
         polyligne: <AiOutlineSwapRight size="1.5em" />,
         polygone: <BsTriangle size="1.5em" />,
@@ -46,16 +48,16 @@ export const icons = {
 
     guide: {
         guide: <RiGuideFill size="1.5em" />,
-        tangente: <BsCursor size="1.5em" />,
-        normale: <BsCursor size="1.5em" />,
+        tangente: <AiOutlineStock size="1.5em" />,
+        normale: <RiGitCommitLine size="1.5em" />,
     },
 
-    etat: <BsCursor size="1.5em" />,
+    etat: <AiOutlineCompass size="1.5em" />,
 
     vue: {
-        streetView: <BsCursor size="1.5em" />,
-        bingMaps: <BsCursor size="1.5em" />,
-        fondGeoserveur: <BsCursor size="1.5em" />,
+        streetView: <FaStreetView size="1.5em" />,
+        bingMaps: <DiBingSmall size="1.5em" />,
+        fondGeoserveur: <BsMap size="1.5em" />,
     },
 
     theme: {

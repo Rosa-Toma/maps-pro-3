@@ -1,14 +1,18 @@
 import { useContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
-import { lightTheme, darkTheme } from "styles/theme";
+
+import { Header, HeaderLogo, HeaderTabs } from "components/Header";
+import { Tab, Tool } from "components/Shared";
+import { Sidebar, SidebarTabs } from "components/Sidebar";
+import { Toolbar, ToolbarTools } from "components/Toolbar";
+import { MapView } from "components/MapView";
+
 import { GlobalStyles } from "styles/global";
 import { AppLayout } from "styles/App/AppLayout";
+import { lightTheme, darkTheme } from "styles/theme";
+
 import { icons } from "assets/icons/icons";
-import { Tab } from "components/Shared";
-import { Header, HeaderLogo, HeaderTabs } from "components/Header";
-import { Sidebar, SidebarTabs } from "components/Sidebar";
-import { Toolbar, ToolbarTools, Tool } from "components/Toolbar";
-import { MapView } from "components/MapView";
+
 import { MapContext } from "context/MapContext";
 import { useStandard, useNavigation, useMeasure, useSnap, useDrawing, useGuide, useDisplay } from "hooks";
 
@@ -18,7 +22,7 @@ function App() {
     const [selectionIcon, setSelectionIcon] = useState(icons.selection.pointEtRectangle);
     const [measureIcon, setMeasureIcon] = useState(icons.mesure.distance);
     const [snapIcon, setSnapIcon] = useState(icons.inactive.inactive);
-    const [drawingIcon, setDrawingIcon] = useState(icons.dessin.cercle);
+    const [drawingIcon, setDrawingIcon] = useState(icons.dessin.base);
     const [viewIcon, setViewIcon] = useState(icons.vue.streetView);
 
     const [pointSelection, circleSelection, polygonSelection, freeSelection, undo, redo] = useStandard(setSelectionIcon);
