@@ -24,7 +24,6 @@ const App = () => {
     const [circleDrawing, polylineDrawing, polygonDrawing] = useDrawing(setDrawingIcon);
     const [tangentGuide, normalGuide] = useGuide();
     const [mapState, streetView, bingMaps, geoserverBackground, theme, toggleTheme] = useDisplay(setViewIcon);
-
     const [hideLegend, displayLegend, hideSelection, displaySelection, hideTools, displayTools, hideLocalisation, displayLocalisation] = useDisplaySection();
 
     return (
