@@ -14,7 +14,7 @@ import { lightTheme, darkTheme } from "styles/theme";
 import { icons } from "assets/icons/icons";
 
 import { MapContext } from "context/MapContext";
-import { useStandard, useNavigation, useMeasure, useSnap, useDrawing, useGuide, useDisplay } from "hooks";
+import { useStandard, useNavigation, useMeasure, useSnap, useDrawing, useGuide, useDisplay, useDisplayTabPanel } from "hooks";
 
 function App() {
     const MAP = useContext(MapContext);
@@ -25,19 +25,6 @@ function App() {
     const [drawingIcon, setDrawingIcon] = useState(icons.dessin.base);
     const [viewIcon, setViewIcon] = useState(icons.vue.streetView);
 
-    const [legendTabPanel, setLegendTabPanel] = useState(true);
-    const [toolsTabPanel, setToolsTabPanel] = useState(false);
-
-    const displayLegendTabPanel = () => {
-        setLegendTabPanel(true);
-        setToolsTabPanel(false);
-    };
-
-    const displayToolsTabPanel = () => {
-        setToolsTabPanel(true);
-        setLegendTabPanel(false);
-    };
-
     const [pointSelection, circleSelection, polygonSelection, freeSelection, undo, redo] = useStandard(setSelectionIcon);
     const [panoter, zoomIn, zoomOut, recenter] = useNavigation(MAP);
     const [distanceMeasurement, surfaceMeasurement, bufferMeasurement, translater, edit] = useMeasure(setMeasureIcon);
@@ -45,6 +32,17 @@ function App() {
     const [circleDrawing, polylineDrawing, polygonDrawing] = useDrawing(setDrawingIcon);
     const [tangentGuide, normalGuide] = useGuide();
     const [mapState, streetView, bingMaps, geoserverBackground, theme, toggleTheme] = useDisplay(setViewIcon);
+
+    const [
+        legendTabPanel,
+        displayLegendTabPanel,
+        selectionTabPanel,
+        displaySelectionTabPanel,
+        toolsTabPanel,
+        displayToolsTabPanel,
+        localisationTabPanel,
+        displayLocalisationTabPanel,
+    ] = useDisplayTabPanel();
 
     return (
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -63,11 +61,27 @@ function App() {
                     <SidebarTabs>
                         <TabList>
                             <Tab title="légende" onClick={displayLegendTabPanel} />
-                            <Tab title="sélection" onClick={displayToolsTabPanel} />
-                            <Tab title="outils" />
-                            <Tab title="localisation" />
+                            <Tab title="sélection" onClick={displaySelectionTabPanel} />
+                            <Tab title="outils" onClick={displayToolsTabPanel} />
+                            <Tab title="localisation" onClick={displayLocalisationTabPanel} />
                         </TabList>
                         {legendTabPanel ? (
+                            <TabPanel>
+                                <TabDropdown title="création ">
+                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
+                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
+                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
+                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
+                                </TabDropdown>
+                                <TabDropdown title="coquille">
+                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
+                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
+                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
+                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
+                                </TabDropdown>
+                            </TabPanel>
+                        ) : null}
+                        {selectionTabPanel ? (
                             <TabPanel>
                                 <TabDropdown title="création objets">
                                     <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
@@ -85,13 +99,29 @@ function App() {
                         ) : null}
                         {toolsTabPanel ? (
                             <TabPanel>
-                                <TabDropdown title="création ">
+                                <TabDropdown title="test3">
                                     <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
                                     <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
                                     <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
                                     <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
                                 </TabDropdown>
-                                <TabDropdown title="coquille">
+                                <TabDropdown title="impression">
+                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
+                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
+                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
+                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
+                                </TabDropdown>
+                            </TabPanel>
+                        ) : null}
+                        {localisationTabPanel ? (
+                            <TabPanel>
+                                <TabDropdown title="test4">
+                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
+                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
+                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
+                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
+                                </TabDropdown>
+                                <TabDropdown title="impression">
                                     <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
                                     <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
                                     <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
