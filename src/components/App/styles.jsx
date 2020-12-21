@@ -7,6 +7,6 @@ export const AppLayout = styled.div`
         "sidebar toolbar"
         "sidebar mapView";
 
-    grid-template-columns: 300px 1fr;
+    grid-template-columns: 400px 1fr;
     grid-template-rows: 50px 100px calc(100vh - 150px);
 `;

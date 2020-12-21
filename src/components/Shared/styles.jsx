@@ -3,8 +3,8 @@ import styled from "styled-components";
 export const TabButton = styled.button`
     border: solid;
     cursor: pointer;
-    padding: 5px;
-    width: 80px;
+    padding: 7px;
+    width: 85px;
     box-shadow: 1px 1px 1px ${({ theme }) => theme.divider};
     background-color: ${({ theme }) => theme.background.secondary};
     color: ${({ theme }) => theme.text.primary};

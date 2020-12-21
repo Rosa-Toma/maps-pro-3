@@ -3,7 +3,7 @@ import { ThemeProvider } from "styled-components";
 
 import { Header, HeaderLogo, HeaderTabs } from "components/Header";
 import { Tab, Tool } from "components/Shared";
-import { Sidebar, SidebarTabs } from "components/Sidebar";
+import { Sidebar, SidebarTabs, TabList, TabPanel, TabDropdown } from "components/Sidebar";
 import { Toolbar, ToolbarTools } from "components/Toolbar";
 import { MapView } from "components/MapView";
 
@@ -25,6 +25,19 @@ function App() {
     const [drawingIcon, setDrawingIcon] = useState(icons.dessin.base);
     const [viewIcon, setViewIcon] = useState(icons.vue.streetView);
 
+    const [legendTabPanel, setLegendTabPanel] = useState(true);
+    const [toolsTabPanel, setToolsTabPanel] = useState(false);
+
+    const displayLegendTabPanel = () => {
+        setLegendTabPanel(true);
+        setToolsTabPanel(false);
+    };
+
+    const displayToolsTabPanel = () => {
+        setToolsTabPanel(true);
+        setLegendTabPanel(false);
+    };
+
     const [pointSelection, circleSelection, polygonSelection, freeSelection, undo, redo] = useStandard(setSelectionIcon);
     const [panoter, zoomIn, zoomOut, recenter] = useNavigation(MAP);
     const [distanceMeasurement, surfaceMeasurement, bufferMeasurement, translater, edit] = useMeasure(setMeasureIcon);
@@ -40,17 +53,52 @@ function App() {
                 <Header>
                     <HeaderLogo />
                     <HeaderTabs>
-                        <Tab />
-                        <Tab />
-                        <Tab />
-                        <Tab />
+                        <Tab title="Carte" />
+                        <Tab title="Recherche" />
+                        <Tab title="information" />
+                        <Tab title="compte" />
                     </HeaderTabs>
                 </Header>
                 <Sidebar>
                     <SidebarTabs>
-                        <Tab />
-                        <Tab />
-                        <Tab />
+                        <TabList>
+                            <Tab title="légende" onClick={displayLegendTabPanel} />
+                            <Tab title="sélection" onClick={displayToolsTabPanel} />
+                            <Tab title="outils" />
+                            <Tab title="localisation" />
+                        </TabList>
+                        {legendTabPanel ? (
+                            <TabPanel>
+                                <TabDropdown title="création objets">
+                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
+                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
+                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
+                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
+                                </TabDropdown>
+                                <TabDropdown title="impression">
+                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
+                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
+                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
+                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
+                                </TabDropdown>
+                            </TabPanel>
+                        ) : null}
+                        {toolsTabPanel ? (
+                            <TabPanel>
+                                <TabDropdown title="création ">
+                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
+                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
+                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
+                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
+                                </TabDropdown>
+                                <TabDropdown title="coquille">
+                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
+                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
+                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
+                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
+                                </TabDropdown>
+                            </TabPanel>
+                        ) : null}
                     </SidebarTabs>
                 </Sidebar>
                 <Toolbar>

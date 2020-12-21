@@ -1,9 +1,9 @@
 import { TabButton } from "./styles";
-
-export default function Tab() {
+import { ToolTitle } from "../Shared/styles";
+export default function Tab({ ...props }) {
     return (
-        <div>
-            <TabButton>Tab</TabButton>
-        </div>
+        <TabButton {...props}>
+            <ToolTitle>{props.title}</ToolTitle>
+        </TabButton>
     );
 }

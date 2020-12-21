@@ -1,6 +1,4 @@
-import { icons } from "assets/icons/icons";
-
-const useGuide = (setIconFunction) => {
+const useGuide = () => {
     const tangentGuide = () => {
         console.log("tangentGuide");
     };
