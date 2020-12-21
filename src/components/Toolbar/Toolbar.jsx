@@ -1,5 +1,5 @@
-import { ToolbarLayout } from "styles/Toolbar/ToolbarLayout";
+import { ToolbarLayout } from "./styles";
 
 export default function Toolbar({ children }) {
-  return <ToolbarLayout>{children}</ToolbarLayout>;
+    return <ToolbarLayout>{children}</ToolbarLayout>;
 }

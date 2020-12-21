@@ -1,5 +1,5 @@
-import { SidebarLayout } from "styles/Sidebar/SidebarLayout";
+import { SidebarLayout } from "./styles";
 
 export default function Sidebar({ children }) {
-  return <SidebarLayout>{children}</SidebarLayout>;
+    return <SidebarLayout>{children}</SidebarLayout>;
 }

@@ -1,4 +1,4 @@
-import { MapViewLayout } from "styles/MapView/MapViewLayout";
+import { MapViewLayout } from "./styles";
 import { useContext, useEffect } from "react";
 import { MapContext } from "context/MapContext";
 

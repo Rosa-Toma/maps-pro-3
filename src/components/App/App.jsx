@@ -8,7 +8,7 @@ import { Toolbar, ToolbarTools } from "components/Toolbar";
 import { MapView } from "components/MapView";
 
 import { GlobalStyles } from "styles/global";
-import { AppLayout } from "styles/App/AppLayout";
+import { AppLayout } from "./styles";
 import { lightTheme, darkTheme } from "styles/theme";
 
 import { icons } from "assets/icons/icons";
@@ -56,56 +56,56 @@ function App() {
                 <Toolbar>
                     <ToolbarTools title="standard">
                         <Tool title="sélection" icon={selectionIcon}>
-                            <Tool action={pointSelection} title="point et rectangle" icon={icons.selection.pointEtRectangle} />
-                            <Tool action={circleSelection} title="cercle" icon={icons.selection.cercle} />
-                            <Tool action={polygonSelection} title="polygonale" icon={icons.selection.polygonale} />
-                            <Tool action={freeSelection} title="libre" icon={icons.selection.libre} />
+                            <Tool title="point et rectangle" icon={icons.selection.pointEtRectangle} action={pointSelection} />
+                            <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
+                            <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
+                            <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
                         </Tool>
-                        <Tool action={undo} title="annuler" icon={icons.annuler} />
-                        <Tool action={redo} title="refaire" icon={icons.refaire} />
+                        <Tool title="annuler" icon={icons.annuler} action={undo} />
+                        <Tool title="refaire" icon={icons.refaire} action={redo} />
                     </ToolbarTools>
                     <ToolbarTools title="navigation">
-                        <Tool action={panoter} title="panoter" icon={icons.panoter} />
-                        <Tool action={zoomIn} title="zoomer" icon={icons.zoomer} />
-                        <Tool action={zoomOut} title="dézoomer" icon={icons.dezoomer} />
-                        <Tool action={recenter} title="recentrer" icon={icons.recentrer} />
+                        <Tool title="panoter" icon={icons.panoter} action={panoter} />
+                        <Tool title="zoomer" icon={icons.zoomer} action={zoomIn} />
+                        <Tool title="dézoomer" icon={icons.dezoomer} action={zoomOut} />
+                        <Tool title="recentrer" icon={icons.recentrer} action={recenter} />
                     </ToolbarTools>
                     <ToolbarTools title="outils">
                         <Tool title="mesure" icon={measureIcon}>
-                            <Tool action={distanceMeasurement} title="distance" icon={icons.mesure.distance} />
-                            <Tool action={surfaceMeasurement} title="surface" icon={icons.mesure.surface} />
-                            <Tool action={bufferMeasurement} title="buffer" icon={icons.mesure.buffer} />
-                            <Tool action={translater} title="translater" icon={icons.mesure.translater} />
-                            <Tool action={edit} title="modifier" icon={icons.mesure.modifier} />
+                            <Tool title="distance" icon={icons.mesure.distance} action={distanceMeasurement} />
+                            <Tool title="surface" icon={icons.mesure.surface} action={surfaceMeasurement} />
+                            <Tool title="buffer" icon={icons.mesure.buffer} action={bufferMeasurement} />
+                            <Tool title="translater" icon={icons.mesure.translater} action={translater} />
+                            <Tool title="modifier" icon={icons.mesure.modifier} action={edit} />
                         </Tool>
                     </ToolbarTools>
                     <ToolbarTools title="accroche">
                         <Tool title="accroche" icon={snapIcon}>
-                            <Tool action={inactiveSnap} title="inactive" icon={icons.inactive.inactive} />
-                            <Tool action={pointSnap} title="point" icon={icons.inactive.point} />
-                            <Tool action={segmentSnap} title="segment" icon={icons.inactive.segment} />
-                            <Tool action={polylineSnap} title="polyligne" icon={icons.inactive.polyligne} />
+                            <Tool title="inactive" icon={icons.inactive.inactive} action={inactiveSnap} />
+                            <Tool title="point" icon={icons.inactive.point} action={pointSnap} />
+                            <Tool title="segment" icon={icons.inactive.segment} action={segmentSnap} />
+                            <Tool title="polyligne" icon={icons.inactive.polyligne} action={polylineSnap} />
                         </Tool>
                     </ToolbarTools>
                     <ToolbarTools title="dessin">
                         <Tool title="dessin" icon={drawingIcon}>
-                            <Tool action={circleDrawing} title="cercle" icon={icons.dessin.cercle} />
-                            <Tool action={polylineDrawing} title="polyligne" icon={icons.dessin.polyligne} />
-                            <Tool action={polygonDrawing} title="polygone" icon={icons.dessin.polygone} />
+                            <Tool title="cercle" icon={icons.dessin.cercle} action={circleDrawing} />
+                            <Tool title="polyligne" icon={icons.dessin.polyligne} action={polylineDrawing} />
+                            <Tool title="polygone" icon={icons.dessin.polygone} action={polygonDrawing} />
                         </Tool>
                         <Tool title="guide" icon={icons.guide.guide}>
-                            <Tool action={tangentGuide} title="tangente" icon={icons.guide.tangente} />
-                            <Tool action={normalGuide} title="normale" icon={icons.guide.normale} />
+                            <Tool title="tangente" icon={icons.guide.tangente} action={tangentGuide} />
+                            <Tool title="normale" icon={icons.guide.normale} action={normalGuide} />
                         </Tool>
                     </ToolbarTools>
                     <ToolbarTools title="affichage">
-                        <Tool action={mapState} title="état" icon={icons.etat} />
+                        <Tool title="état" icon={icons.etat} action={mapState} />
                         <Tool title="vue" icon={viewIcon}>
-                            <Tool action={streetView} title="street view" icon={icons.vue.streetView} />
-                            <Tool action={bingMaps} title="bing maps" icon={icons.vue.bingMaps} />
-                            <Tool action={geoserverBackground} title="fond geoserver" icon={icons.vue.fondGeoserveur} />
+                            <Tool title="street view" icon={icons.vue.streetView} action={streetView} />
+                            <Tool title="bing maps" icon={icons.vue.bingMaps} action={bingMaps} />
+                            <Tool title="fond geoserver" icon={icons.vue.fondGeoserveur} action={geoserverBackground} />
                         </Tool>
-                        <Tool action={toggleTheme} title="theme" icon={theme === "light" ? icons.theme.moon : icons.theme.sun} />
+                        <Tool title="theme" icon={theme === "light" ? icons.theme.moon : icons.theme.sun} action={toggleTheme} />
                     </ToolbarTools>
                 </Toolbar>
                 <MapView />

@@ -1,7 +1,5 @@
-import { ToolButton } from "styles/Shared/ToolButton";
-import { ToolIcon } from "styles/Shared/ToolIcon";
-import { ToolTitle } from "styles/Shared/ToolTitle";
-import { ToolsDropdown } from "styles/Toolbar/ToolsDropdown";
+import { ToolButton, ToolIcon, ToolTitle, ToolsDropdown } from "./styles";
+
 import { icons } from "assets/icons/icons";
 
 import { useState } from "react";

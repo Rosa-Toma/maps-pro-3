@@ -1,11 +1,10 @@
-import { ToolbarToolsContainer } from "styles/Toolbar/ToolbarToolsContainer";
-import { ToolbarToolsTitle } from "styles/Toolbar/ToolbarToolsTitle";
+import { ToolbarToolsContainer, ToolbarToolsTitle } from "./styles";
 
 export default function ToolbarTools({ children, title }) {
-  return (
-    <div>
-      <ToolbarToolsTitle>{title}</ToolbarToolsTitle>
-      <ToolbarToolsContainer>{children}</ToolbarToolsContainer>
-    </div>
-  );
+    return (
+        <div>
+            <ToolbarToolsTitle>{title}</ToolbarToolsTitle>
+            <ToolbarToolsContainer>{children}</ToolbarToolsContainer>
+        </div>
+    );
 }

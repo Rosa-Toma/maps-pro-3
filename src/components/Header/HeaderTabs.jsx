@@ -1,5 +1,5 @@
-import { HeaderTabsContainer } from "styles/Header/HeaderTabsContainer";
+import { HeaderTabsContainer } from "./styles";
 
 export default function HeaderTabs({ children }) {
-  return <HeaderTabsContainer>{children}</HeaderTabsContainer>;
+    return <HeaderTabsContainer>{children}</HeaderTabsContainer>;
 }

@@ -1,5 +1,5 @@
-import { HeaderLayout } from "styles/Header/HeaderLayout";
+import { HeaderLayout } from "./styles";
 
 export default function Header({ children }) {
-  return <HeaderLayout>{children}</HeaderLayout>;
+    return <HeaderLayout>{children}</HeaderLayout>;
 }

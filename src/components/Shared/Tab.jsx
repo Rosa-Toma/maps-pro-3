@@ -1,9 +1,9 @@
-import { TabButton } from "styles/Shared/TabButton";
+import { TabButton } from "./styles";
 
 export default function Tab() {
-  return (
-    <div>
-      <TabButton>Tab</TabButton>
-    </div>
-  );
+    return (
+        <div>
+            <TabButton>Tab</TabButton>
+        </div>
+    );
 }
