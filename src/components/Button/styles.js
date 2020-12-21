@@ -10,10 +10,11 @@ export const StyledButton = styled.button`
     border: solid 1px ${({ theme }) => theme.divider};
     box-shadow: 1px 1px 1px ${({ theme }) => theme.divider};
     background-color: ${({ theme }) => theme.background.secondary};
-    width: ${({ large }) => (large ? "370px" : "80px")};
+    width: ${({ width }) => (width ? width : "80px")};
+    height: ${({ height }) => (height ? height : "50px")};
     padding: 5px;
     outline: none;
-
+    font-size: ${({ bold }) => (bold ? "1.2em" : "auto")};
     margin: 3px 3px 3px 3px;
 
     &:hover {

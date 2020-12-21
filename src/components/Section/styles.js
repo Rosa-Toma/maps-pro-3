@@ -3,6 +3,7 @@ import styled from "styled-components";
 export const StyledSection = styled.div`
     display: flex;
     flex-direction: ${({ vertical }) => (vertical ? "column" : "row")};
+    width: ${({ width }) => (width ? width : "auto")};
     justify-content: space-evenly;
     align-items: center;
 `;

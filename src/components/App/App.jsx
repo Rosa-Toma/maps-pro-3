@@ -1,16 +1,12 @@
 import { useContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
-
-import { Logo, Header, Map, Button, Section, Sidebar, Toolbar } from "components";
-
 import { GlobalStyles } from "styles/global";
-import { Layout } from "./styles";
 import { lightTheme, darkTheme } from "styles/theme";
-
+import { Layout } from "./styles";
 import { icons } from "assets/icons/icons";
-
-import { MapContext } from "context/MapContext";
+import { Logo, Header, Map, Button, Section, Sidebar, Toolbar } from "components";
 import { useStandard, useNavigation, useMeasure, useSnap, useDrawing, useGuide, useDisplay, useDisplayTabPanel } from "hooks";
+import { MapContext } from "context/MapContext";
 
 const App = () => {
     const MAP = useContext(MapContext);
@@ -46,38 +42,32 @@ const App = () => {
             <Layout>
                 <Header>
                     <Logo />
-                    <Section>
-                        <Button title="Carte" />
-                        <Button title="Recherche" />
-                        <Button title="information" />
-                        <Button title="compte" />
+                    <Section width="500px">
+                        <Button title="Carte" width="100px" height="32px" />
+                        <Button title="Recherche" width="100px" height="32px" />
+                        <Button title="information" width="100px" height="32px" />
+                        <Button title="compte" width="100px" height="32px" />
                     </Section>
                 </Header>
                 <Sidebar>
                     <Section>
-                        <Button title="légende" onClick={displayLegendTabPanel} />
-                        <Button title="sélection" onClick={displaySelectionTabPanel} />
-                        <Button title="outils" onClick={displayToolsTabPanel} />
-                        <Button title="localisation" onClick={displayLocalisationTabPanel} />
+                        <Button title="légende" onClick={displayLegendTabPanel} width="90px" height="32px" />
+                        <Button title="sélection" onClick={displaySelectionTabPanel} width="90px" height="32px" />
+                        <Button title="outils" onClick={displayToolsTabPanel} width="90px" height="32px" />
+                        <Button title="localisation" onClick={displayLocalisationTabPanel} width="90px" height="32px" />
                     </Section>
                     {legendTabPanel ? <Section></Section> : null}
                     {selectionTabPanel ? <Section></Section> : null}
                     {toolsTabPanel ? (
                         <Section vertical>
-                            <Button large horizontal title="création objets"></Button>
-                            <Button large horizontal title="impression">
-                                <form style={{ display: "flex", flexDirection: "column" }}>
-                                    <label htmlFor="title">Titre</label>
-                                    <input type="text" name="title" placeholder="Titre" />
-                                    <label htmlFor="logo">Logo</label>
-                                    <input type="file" name="logo" />
-                                </form>
-                                <div style={{ display: "flex" }}>
+                            <Button title="création objets" width="390px" horizontal bold></Button>
+                            <Button title="impression" width="390px" horizontal bold>
+                                <Section width="390px">
                                     <Button title="paramètres" icon={icons.impression.parametres} onClick={pointSelection} />
                                     <Button title="recadrer" icon={icons.impression.recadrer} onClick={circleSelection} />
                                     <Button title="imprimer" icon={icons.impression.imprimer} onClick={polygonSelection} />
                                     <Button title="exporter" icon={icons.impression.exporter} onClick={freeSelection} />
-                                </div>
+                                </Section>
                             </Button>
                         </Section>
                     ) : null}
