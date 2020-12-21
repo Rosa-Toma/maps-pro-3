@@ -5,7 +5,7 @@ import { lightTheme, darkTheme } from "styles/theme";
 import { Layout } from "./styles";
 import { icons } from "assets/icons/icons";
 import { Logo, Header, Map, Button, Section, Sidebar, Toolbar } from "components";
-import { useStandard, useNavigation, useMeasure, useSnap, useDrawing, useGuide, useDisplay, useDisplayTabPanel } from "hooks";
+import { useStandard, useNavigation, useMeasure, useSnap, useDrawing, useGuide, useDisplay, useDisplaySection } from "hooks";
 import { MapContext } from "context/MapContext";
 
 const App = () => {
@@ -25,16 +25,7 @@ const App = () => {
     const [tangentGuide, normalGuide] = useGuide();
     const [mapState, streetView, bingMaps, geoserverBackground, theme, toggleTheme] = useDisplay(setViewIcon);
 
-    const [
-        legendTabPanel,
-        displayLegendTabPanel,
-        selectionTabPanel,
-        displaySelectionTabPanel,
-        toolsTabPanel,
-        displayToolsTabPanel,
-        localisationTabPanel,
-        displayLocalisationTabPanel,
-    ] = useDisplayTabPanel();
+    const [hideLegend, displayLegend, hideSelection, displaySelection, hideTools, displayTools, hideLocalisation, displayLocalisation] = useDisplaySection();
 
     return (
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
@@ -51,27 +42,25 @@ const App = () => {
                 </Header>
                 <Sidebar>
                     <Section>
-                        <Button title="légende" onClick={displayLegendTabPanel} width="90px" height="32px" />
-                        <Button title="sélection" onClick={displaySelectionTabPanel} width="90px" height="32px" />
-                        <Button title="outils" onClick={displayToolsTabPanel} width="90px" height="32px" />
-                        <Button title="localisation" onClick={displayLocalisationTabPanel} width="90px" height="32px" />
+                        <Button title="légende" onClick={displayLegend} width="90px" height="32px" />
+                        <Button title="sélection" onClick={displaySelection} width="90px" height="32px" />
+                        <Button title="outils" onClick={displayTools} width="90px" height="32px" />
+                        <Button title="localisation" onClick={displayLocalisation} width="90px" height="32px" />
                     </Section>
-                    {legendTabPanel ? <Section></Section> : null}
-                    {selectionTabPanel ? <Section></Section> : null}
-                    {toolsTabPanel ? (
-                        <Section vertical>
-                            <Button title="création objets" width="390px" horizontal bold></Button>
-                            <Button title="impression" width="390px" horizontal bold>
-                                <Section width="390px">
-                                    <Button title="paramètres" icon={icons.impression.parametres} onClick={pointSelection} />
-                                    <Button title="recadrer" icon={icons.impression.recadrer} onClick={circleSelection} />
-                                    <Button title="imprimer" icon={icons.impression.imprimer} onClick={polygonSelection} />
-                                    <Button title="exporter" icon={icons.impression.exporter} onClick={freeSelection} />
-                                </Section>
-                            </Button>
-                        </Section>
-                    ) : null}
-                    {localisationTabPanel ? <Section></Section> : null}
+                    <Section hide={hideLegend}></Section>
+                    <Section hide={hideSelection}></Section>
+                    <Section hide={hideTools} vertical>
+                        <Button title="création objets" width="390px" horizontal bold></Button>
+                        <Button title="impression" width="390px" horizontal bold>
+                            <Section width="390px">
+                                <Button title="paramètres" icon={icons.impression.parametres} onClick={pointSelection} />
+                                <Button title="recadrer" icon={icons.impression.recadrer} onClick={circleSelection} />
+                                <Button title="imprimer" icon={icons.impression.imprimer} onClick={polygonSelection} />
+                                <Button title="exporter" icon={icons.impression.exporter} onClick={freeSelection} />
+                            </Section>
+                        </Button>
+                    </Section>
+                    <Section hide={hideLocalisation}></Section>
                 </Sidebar>
                 <Toolbar>
                     <Section title="standard">

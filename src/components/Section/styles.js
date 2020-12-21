@@ -6,6 +6,7 @@ export const StyledSection = styled.div`
     width: ${({ width }) => (width ? width : "auto")};
     justify-content: space-evenly;
     align-items: center;
+    display: ${({ hide }) => (hide ? "none" : "auto")};
 `;
 
 export const Title = styled.h1`
