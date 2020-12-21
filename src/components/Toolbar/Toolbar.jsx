@@ -1,5 +1,7 @@
-import { ToolbarLayout } from "./styles";
+import { StyledToolbar } from "./styles";
 
-export default function Toolbar({ children }) {
-    return <ToolbarLayout>{children}</ToolbarLayout>;
-}
+const Toolbar = ({ children }) => {
+    return <StyledToolbar>{children}</StyledToolbar>;
+};
+
+export default Toolbar;

@@ -1,5 +1,16 @@
-import { BsCursor, BsSquare, BsCircle, BsArrowsMove, BsSlashSquare, BsTriangle, BsMap, BsPen } from "react-icons/bs";
-import { AiOutlineSelect, AiOutlinePicCenter, AiOutlineLine, AiOutlineSwapRight, AiOutlineZoomIn, AiOutlineZoomOut, AiOutlineStock, AiOutlineCompass } from "react-icons/ai";
+import { BsCursor, BsSquare, BsCircle, BsArrowsMove, BsSlashSquare, BsTriangle, BsMap, BsPen, BsTools } from "react-icons/bs";
+import {
+    AiOutlineSelect,
+    AiOutlinePicCenter,
+    AiOutlineLine,
+    AiOutlineSwapRight,
+    AiOutlineZoomIn,
+    AiOutlineZoomOut,
+    AiOutlineStock,
+    AiOutlineCompass,
+    AiOutlinePrinter,
+    AiOutlineExport,
+} from "react-icons/ai";
 import { GrUndo, GrRedo } from "react-icons/gr";
 import { RiRulerLine, RiGuideFill, RiGitCommitLine } from "react-icons/ri";
 import { FaBuffer, FaRegHandPaper, FaStreetView } from "react-icons/fa";
@@ -8,6 +19,7 @@ import { GiSightDisabled } from "react-icons/gi";
 import { BiMoon, BiSun } from "react-icons/bi";
 import { VscChevronDown } from "react-icons/vsc";
 import { DiBingSmall } from "react-icons/di";
+import { MdFilterCenterFocus } from "react-icons/md";
 
 export const icons = {
     selection: {
@@ -65,4 +77,10 @@ export const icons = {
         moon: <BiMoon size="1.5em" />,
     },
     dropdown: <VscChevronDown size="1.5em" />,
+    impression: {
+        parametres: <BsTools size="1.5em" />,
+        recadrer: <MdFilterCenterFocus size="1.5em" />,
+        imprimer: <AiOutlinePrinter size="1.5em" />,
+        exporter: <AiOutlineExport size="1.5em" />,
+    },
 };

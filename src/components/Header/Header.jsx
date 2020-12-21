@@ -1,5 +1,6 @@
-import { HeaderLayout } from "./styles";
+import { StyledHeader } from "./styles";
+const Header = ({ children }) => {
+    return <StyledHeader>{children}</StyledHeader>;
+};
 
-export default function Header({ children }) {
-    return <HeaderLayout>{children}</HeaderLayout>;
-}
+export default Header;

@@ -1,5 +1,7 @@
-import { SidebarLayout } from "./styles";
+import { StyledSidebar } from "./styles";
 
-export default function Sidebar({ children }) {
-    return <SidebarLayout>{children}</SidebarLayout>;
-}
+const Sidebar = ({ children }) => {
+    return <StyledSidebar>{children}</StyledSidebar>;
+};
+
+export default Sidebar;

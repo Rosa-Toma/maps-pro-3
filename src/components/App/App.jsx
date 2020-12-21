@@ -1,14 +1,10 @@
 import { useContext, useState } from "react";
 import { ThemeProvider } from "styled-components";
 
-import { Header, HeaderLogo, HeaderTabs } from "components/Header";
-import { Tab, Tool } from "components/Shared";
-import { Sidebar, SidebarTabs, TabList, TabPanel, TabDropdown } from "components/Sidebar";
-import { Toolbar, ToolbarTools } from "components/Toolbar";
-import { MapView } from "components/MapView";
+import { Logo, Header, Map, Button, Section, Sidebar, Toolbar } from "components";
 
 import { GlobalStyles } from "styles/global";
-import { AppLayout } from "./styles";
+import { Layout } from "./styles";
 import { lightTheme, darkTheme } from "styles/theme";
 
 import { icons } from "assets/icons/icons";
@@ -16,7 +12,7 @@ import { icons } from "assets/icons/icons";
 import { MapContext } from "context/MapContext";
 import { useStandard, useNavigation, useMeasure, useSnap, useDrawing, useGuide, useDisplay, useDisplayTabPanel } from "hooks";
 
-function App() {
+const App = () => {
     const MAP = useContext(MapContext);
 
     const [selectionIcon, setSelectionIcon] = useState(icons.selection.pointEtRectangle);
@@ -47,149 +43,105 @@ function App() {
     return (
         <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
             <GlobalStyles />
-            <AppLayout>
+            <Layout>
                 <Header>
-                    <HeaderLogo />
-                    <HeaderTabs>
-                        <Tab title="Carte" />
-                        <Tab title="Recherche" />
-                        <Tab title="information" />
-                        <Tab title="compte" />
-                    </HeaderTabs>
+                    <Logo />
+                    <Section>
+                        <Button title="Carte" />
+                        <Button title="Recherche" />
+                        <Button title="information" />
+                        <Button title="compte" />
+                    </Section>
                 </Header>
                 <Sidebar>
-                    <SidebarTabs>
-                        <TabList>
-                            <Tab title="légende" onClick={displayLegendTabPanel} />
-                            <Tab title="sélection" onClick={displaySelectionTabPanel} />
-                            <Tab title="outils" onClick={displayToolsTabPanel} />
-                            <Tab title="localisation" onClick={displayLocalisationTabPanel} />
-                        </TabList>
-                        {legendTabPanel ? (
-                            <TabPanel>
-                                <TabDropdown title="création ">
-                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
-                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
-                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
-                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
-                                </TabDropdown>
-                                <TabDropdown title="coquille">
-                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
-                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
-                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
-                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
-                                </TabDropdown>
-                            </TabPanel>
-                        ) : null}
-                        {selectionTabPanel ? (
-                            <TabPanel>
-                                <TabDropdown title="création objets">
-                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
-                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
-                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
-                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
-                                </TabDropdown>
-                                <TabDropdown title="impression">
-                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
-                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
-                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
-                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
-                                </TabDropdown>
-                            </TabPanel>
-                        ) : null}
-                        {toolsTabPanel ? (
-                            <TabPanel>
-                                <TabDropdown title="test3">
-                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
-                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
-                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
-                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
-                                </TabDropdown>
-                                <TabDropdown title="impression">
-                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
-                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
-                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
-                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
-                                </TabDropdown>
-                            </TabPanel>
-                        ) : null}
-                        {localisationTabPanel ? (
-                            <TabPanel>
-                                <TabDropdown title="test4">
-                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
-                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
-                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
-                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
-                                </TabDropdown>
-                                <TabDropdown title="impression">
-                                    <Tool title="point" icon={icons.selection.pointEtRectangle} action={pointSelection} />
-                                    <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
-                                    <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
-                                    <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
-                                </TabDropdown>
-                            </TabPanel>
-                        ) : null}
-                    </SidebarTabs>
+                    <Section>
+                        <Button title="légende" onClick={displayLegendTabPanel} />
+                        <Button title="sélection" onClick={displaySelectionTabPanel} />
+                        <Button title="outils" onClick={displayToolsTabPanel} />
+                        <Button title="localisation" onClick={displayLocalisationTabPanel} />
+                    </Section>
+                    {legendTabPanel ? <Section></Section> : null}
+                    {selectionTabPanel ? <Section></Section> : null}
+                    {toolsTabPanel ? (
+                        <Section vertical>
+                            <Button large horizontal title="création objets"></Button>
+                            <Button large horizontal title="impression">
+                                <form style={{ display: "flex", flexDirection: "column" }}>
+                                    <label htmlFor="title">Titre</label>
+                                    <input type="text" name="title" placeholder="Titre" />
+                                    <label htmlFor="logo">Logo</label>
+                                    <input type="file" name="logo" />
+                                </form>
+                                <div style={{ display: "flex" }}>
+                                    <Button title="paramètres" icon={icons.impression.parametres} onClick={pointSelection} />
+                                    <Button title="recadrer" icon={icons.impression.recadrer} onClick={circleSelection} />
+                                    <Button title="imprimer" icon={icons.impression.imprimer} onClick={polygonSelection} />
+                                    <Button title="exporter" icon={icons.impression.exporter} onClick={freeSelection} />
+                                </div>
+                            </Button>
+                        </Section>
+                    ) : null}
+                    {localisationTabPanel ? <Section></Section> : null}
                 </Sidebar>
                 <Toolbar>
-                    <ToolbarTools title="standard">
-                        <Tool title="sélection" icon={selectionIcon}>
-                            <Tool title="point et rectangle" icon={icons.selection.pointEtRectangle} action={pointSelection} />
-                            <Tool title="cercle" icon={icons.selection.cercle} action={circleSelection} />
-                            <Tool title="polygonale" icon={icons.selection.polygonale} action={polygonSelection} />
-                            <Tool title="libre" icon={icons.selection.libre} action={freeSelection} />
-                        </Tool>
-                        <Tool title="annuler" icon={icons.annuler} action={undo} />
-                        <Tool title="refaire" icon={icons.refaire} action={redo} />
-                    </ToolbarTools>
-                    <ToolbarTools title="navigation">
-                        <Tool title="panoter" icon={icons.panoter} action={panoter} />
-                        <Tool title="zoomer" icon={icons.zoomer} action={zoomIn} />
-                        <Tool title="dézoomer" icon={icons.dezoomer} action={zoomOut} />
-                        <Tool title="recentrer" icon={icons.recentrer} action={recenter} />
-                    </ToolbarTools>
-                    <ToolbarTools title="outils">
-                        <Tool title="mesure" icon={measureIcon}>
-                            <Tool title="distance" icon={icons.mesure.distance} action={distanceMeasurement} />
-                            <Tool title="surface" icon={icons.mesure.surface} action={surfaceMeasurement} />
-                            <Tool title="buffer" icon={icons.mesure.buffer} action={bufferMeasurement} />
-                            <Tool title="translater" icon={icons.mesure.translater} action={translater} />
-                            <Tool title="modifier" icon={icons.mesure.modifier} action={edit} />
-                        </Tool>
-                    </ToolbarTools>
-                    <ToolbarTools title="accroche">
-                        <Tool title="accroche" icon={snapIcon}>
-                            <Tool title="inactive" icon={icons.inactive.inactive} action={inactiveSnap} />
-                            <Tool title="point" icon={icons.inactive.point} action={pointSnap} />
-                            <Tool title="segment" icon={icons.inactive.segment} action={segmentSnap} />
-                            <Tool title="polyligne" icon={icons.inactive.polyligne} action={polylineSnap} />
-                        </Tool>
-                    </ToolbarTools>
-                    <ToolbarTools title="dessin">
-                        <Tool title="dessin" icon={drawingIcon}>
-                            <Tool title="cercle" icon={icons.dessin.cercle} action={circleDrawing} />
-                            <Tool title="polyligne" icon={icons.dessin.polyligne} action={polylineDrawing} />
-                            <Tool title="polygone" icon={icons.dessin.polygone} action={polygonDrawing} />
-                        </Tool>
-                        <Tool title="guide" icon={icons.guide.guide}>
-                            <Tool title="tangente" icon={icons.guide.tangente} action={tangentGuide} />
-                            <Tool title="normale" icon={icons.guide.normale} action={normalGuide} />
-                        </Tool>
-                    </ToolbarTools>
-                    <ToolbarTools title="affichage">
-                        <Tool title="état" icon={icons.etat} action={mapState} />
-                        <Tool title="vue" icon={viewIcon}>
-                            <Tool title="street view" icon={icons.vue.streetView} action={streetView} />
-                            <Tool title="bing maps" icon={icons.vue.bingMaps} action={bingMaps} />
-                            <Tool title="fond geoserver" icon={icons.vue.fondGeoserveur} action={geoserverBackground} />
-                        </Tool>
-                        <Tool title="theme" icon={theme === "light" ? icons.theme.moon : icons.theme.sun} action={toggleTheme} />
-                    </ToolbarTools>
+                    <Section title="standard">
+                        <Button title="sélection" icon={selectionIcon}>
+                            <Button title="point et rectangle" icon={icons.selection.pointEtRectangle} onClick={pointSelection} />
+                            <Button title="cercle" icon={icons.selection.cercle} onClick={circleSelection} />
+                            <Button title="polygonale" icon={icons.selection.polygonale} onClick={polygonSelection} />
+                            <Button title="libre" icon={icons.selection.libre} onClick={freeSelection} />
+                        </Button>
+                        <Button title="annuler" icon={icons.annuler} onClick={undo} />
+                        <Button title="refaire" icon={icons.refaire} onClick={redo} />
+                    </Section>
+                    <Section title="navigation">
+                        <Button title="panoter" icon={icons.panoter} onClick={panoter} />
+                        <Button title="zoomer" icon={icons.zoomer} onClick={zoomIn} />
+                        <Button title="dézoomer" icon={icons.dezoomer} onClick={zoomOut} />
+                        <Button title="recentrer" icon={icons.recentrer} onClick={recenter} />
+                    </Section>
+                    <Section title="outils">
+                        <Button title="mesure" icon={measureIcon}>
+                            <Button title="distance" icon={icons.mesure.distance} onClick={distanceMeasurement} />
+                            <Button title="surface" icon={icons.mesure.surface} onClick={surfaceMeasurement} />
+                            <Button title="buffer" icon={icons.mesure.buffer} onClick={bufferMeasurement} />
+                            <Button title="translater" icon={icons.mesure.translater} onClick={translater} />
+                            <Button title="modifier" icon={icons.mesure.modifier} onClick={edit} />
+                        </Button>
+                    </Section>
+                    <Section title="accroche">
+                        <Button title="accroche" icon={snapIcon}>
+                            <Button title="inactive" icon={icons.inactive.inactive} onClick={inactiveSnap} />
+                            <Button title="point" icon={icons.inactive.point} onClick={pointSnap} />
+                            <Button title="segment" icon={icons.inactive.segment} onClick={segmentSnap} />
+                            <Button title="polyligne" icon={icons.inactive.polyligne} onClick={polylineSnap} />
+                        </Button>
+                    </Section>
+                    <Section title="dessin">
+                        <Button title="dessin" icon={drawingIcon}>
+                            <Button title="cercle" icon={icons.dessin.cercle} onClick={circleDrawing} />
+                            <Button title="polyligne" icon={icons.dessin.polyligne} onClick={polylineDrawing} />
+                            <Button title="polygone" icon={icons.dessin.polygone} onClick={polygonDrawing} />
+                        </Button>
+                        <Button title="guide" icon={icons.guide.guide}>
+                            <Button title="tangente" icon={icons.guide.tangente} onClick={tangentGuide} />
+                            <Button title="normale" icon={icons.guide.normale} onClick={normalGuide} />
+                        </Button>
+                    </Section>
+                    <Section title="affichage">
+                        <Button title="état" icon={icons.etat} onClick={mapState} />
+                        <Button title="vue" icon={viewIcon}>
+                            <Button title="street view" icon={icons.vue.streetView} onClick={streetView} />
+                            <Button title="bing maps" icon={icons.vue.bingMaps} onClick={bingMaps} />
+                            <Button title="fond geoserver" icon={icons.vue.fondGeoserveur} onClick={geoserverBackground} />
+                        </Button>
+                        <Button title="theme" icon={theme === "light" ? icons.theme.moon : icons.theme.sun} onClick={toggleTheme} />
+                    </Section>
                 </Toolbar>
-                <MapView />
-            </AppLayout>
+                <Map />
+            </Layout>
         </ThemeProvider>
     );
-}
+};
 
 export default App;
