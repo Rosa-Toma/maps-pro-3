@@ -1,24 +1,13 @@
-import { StyledButton, Icon, Title, ChildsContainer } from "./styles";
-import { icons } from "assets/icons/icons";
-import { useState } from "react";
+import { StyledButton, Icon, Title } from "./styles";
 
-const Button = ({ children, icon, title, ...props }) => {
-    const [isOpen, setIsOpen] = useState(false);
-
-    const handleClick = () => {
-        setIsOpen(!isOpen);
-    };
-
+const Button = ({ ...props }) => {
     return (
-        <div onClick={handleClick}>
-            <StyledButton {...props}>
-                <Icon>
-                    {icon} {children && icons.dropdown}
-                </Icon>
-                <Title>{title}</Title>
-            </StyledButton>
-            {isOpen && <ChildsContainer>{children}</ChildsContainer>}
-        </div>
+        <StyledButton {...props}>
+            <Icon>
+                {props.icon} {props.dropdown && props.dropdown}
+            </Icon>
+            <Title>{props.title}</Title>
+        </StyledButton>
     );
 };
 

@@ -1,9 +1,9 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
+export const StyledButton = styled.div`
     display: flex;
-    flex-direction: ${({ horizontal }) => (horizontal ? "row-reverse" : "column")};
-    justify-content: ${({ horizontal }) => (horizontal ? "space-between" : "center")};
+    flex-direction: ${({ sidebar }) => (sidebar ? "row-reverse" : "column")};
+    justify-content: ${({ sidebar }) => (sidebar ? "space-between" : "center")};
     align-items: center;
     cursor: pointer;
     color: ${({ theme }) => theme.text.primary};
@@ -14,7 +14,6 @@ export const StyledButton = styled.button`
     height: ${({ height }) => (height ? height : "50px")};
     padding: 5px;
     outline: none;
-    font-size: ${({ bold }) => (bold ? "1.2em" : "auto")};
     margin: 3px 3px 3px 3px;
 
     &:hover {
@@ -32,6 +31,8 @@ export const Title = styled.h2`
     color: ${({ theme }) => theme.text.primary};
     font-size: 0.8em;
     letter-spacing: 1px;
+    font-weight: lighter;
+    font-size: 11px;
     text-align: center;
     text-transform: capitalize;
 `;

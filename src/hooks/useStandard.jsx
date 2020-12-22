@@ -1,23 +1,11 @@
-import { icons } from "assets/icons/icons";
-import { useState } from "react";
-
 const useStandard = () => {
-    const [selectionIcon, setSelectionIcon] = useState(icons.selection.pointEtRectangle);
-    const pointSelection = () => {
-        setSelectionIcon(icons.selection.pointEtRectangle);
-    };
+    const pointSelection = () => {};
 
-    const circleSelection = () => {
-        setSelectionIcon(icons.selection.cercle);
-    };
+    const circleSelection = () => {};
 
-    const polygonSelection = () => {
-        setSelectionIcon(icons.selection.polygonale);
-    };
+    const polygonSelection = () => {};
 
-    const freeSelection = () => {
-        setSelectionIcon(icons.selection.libre);
-    };
+    const freeSelection = () => {};
 
     const undo = () => {
         console.log("undo");
@@ -27,7 +15,7 @@ const useStandard = () => {
         console.log("redo");
     };
 
-    return [pointSelection, circleSelection, polygonSelection, freeSelection, undo, redo, selectionIcon];
+    return [pointSelection, circleSelection, polygonSelection, freeSelection, undo, redo];
 };
 
 export default useStandard;
