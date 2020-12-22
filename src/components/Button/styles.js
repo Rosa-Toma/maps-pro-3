@@ -15,6 +15,7 @@ export const StyledButton = styled.div`
     padding: 5px;
     outline: none;
     margin: 3px 3px 3px 3px;
+    user-select: none; /* standard syntax */
 
     &:hover {
         background-color: ${({ theme }) => theme.action.hover};
