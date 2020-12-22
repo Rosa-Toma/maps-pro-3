@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { icons } from "assets/icons/icons";
-const [measureIcon, setMeasureIcon] = useState(icons.mesure.distance);
 
 const useMeasure = () => {
+    const [measureIcon, setMeasureIcon] = useState(icons.mesure.distance);
     const distanceMeasurement = () => {
         setMeasureIcon(icons.mesure.distance);
         console.log("distance measurement");

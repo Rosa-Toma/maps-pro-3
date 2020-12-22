@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { icons } from "assets/icons/icons";
 
-const [drawingIcon, setDrawingIcon] = useState(icons.dessin.base);
 
 const useDrawing = () => {
+    const [drawingIcon, setDrawingIcon] = useState(icons.dessin.base);
     const circleDrawing = () => {
         setDrawingIcon(icons.dessin.cercle);
         console.log("circleDrawing");

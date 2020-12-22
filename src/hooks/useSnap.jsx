@@ -1,8 +1,8 @@
 import { useState } from "react";
 import { icons } from "assets/icons/icons";
-const [snapIcon, setSnapIcon] = useState(icons.inactive.inactive);
 
 const useSnap = () => {
+    const [snapIcon, setSnapIcon] = useState(icons.inactive.inactive);
     const inactiveSnap = () => {
         setSnapIcon(icons.inactive.inactive);
         console.log("inactive");

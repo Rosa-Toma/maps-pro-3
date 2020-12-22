@@ -1,8 +1,8 @@
 import { icons } from "assets/icons/icons";
 import { useState } from "react";
-const [selectionIcon, setSelectionIcon] = useState(icons.selection.pointEtRectangle);
 
 const useStandard = () => {
+    const [selectionIcon, setSelectionIcon] = useState(icons.selection.pointEtRectangle);
     const pointSelection = () => {
         setSelectionIcon(icons.selection.pointEtRectangle);
     };
