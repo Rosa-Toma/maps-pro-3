@@ -2,7 +2,10 @@ import { useState } from "react";
 
 import { icons } from "assets/icons/icons";
 
-const useDisplay = (setIconFunction) => {
+const useDisplay = () => {
+    const [viewIcon, setViewIcon] = useState(icons.vue.streetView);
+
+    
     const [theme, setTheme] = useState("light");
 
     const mapState = () => {
@@ -10,17 +13,17 @@ const useDisplay = (setIconFunction) => {
     };
 
     const streetView = () => {
-        setIconFunction(icons.vue.streetView);
+        setViewIcon(icons.vue.streetView);
         console.log("streetView");
     };
 
     const bingMaps = () => {
-        setIconFunction(icons.vue.bingMaps);
+        setViewIcon(icons.vue.bingMaps);
         console.log("bingMaps");
     };
 
     const geoserverBackground = () => {
-        setIconFunction(icons.vue.fondGeoserveur);
+        setViewIcon(icons.vue.fondGeoserveur);
         console.log("geoserverBackground");
     };
 
@@ -28,7 +31,7 @@ const useDisplay = (setIconFunction) => {
         theme === "light" ? setTheme("dark") : setTheme("light");
     };
 
-    return [mapState, streetView, bingMaps, geoserverBackground, theme, toggleTheme];
+    return [mapState, streetView, bingMaps, geoserverBackground, theme, toggleTheme, viewIcon];
 };
 
 export default useDisplay;

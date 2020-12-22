@@ -1,22 +1,25 @@
+import { useState } from "react";
 import { icons } from "assets/icons/icons";
 
-const useDrawing = (setIconFunction) => {
+const [drawingIcon, setDrawingIcon] = useState(icons.dessin.base);
+
+const useDrawing = () => {
     const circleDrawing = () => {
-        setIconFunction(icons.dessin.cercle);
+        setDrawingIcon(icons.dessin.cercle);
         console.log("circleDrawing");
     };
 
     const polylineDrawing = () => {
-        setIconFunction(icons.dessin.polyligne);
+        setDrawingIcon(icons.dessin.polyligne);
         console.log("polylineDrawing");
     };
 
     const polygonDrawing = () => {
-        setIconFunction(icons.dessin.polygone);
+        setDrawingIcon(icons.dessin.polygone);
         console.log("polygonDrawing");
     };
 
-    return [circleDrawing, polylineDrawing, polygonDrawing];
+    return [circleDrawing, polylineDrawing, polygonDrawing, drawingIcon];
 };
 
 export default useDrawing;

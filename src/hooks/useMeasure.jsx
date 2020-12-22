@@ -1,32 +1,34 @@
+import { useState } from "react";
 import { icons } from "assets/icons/icons";
+const [measureIcon, setMeasureIcon] = useState(icons.mesure.distance);
 
-const useMeasure = (setIconFunction) => {
+const useMeasure = () => {
     const distanceMeasurement = () => {
-        setIconFunction(icons.mesure.distance);
+        setMeasureIcon(icons.mesure.distance);
         console.log("distance measurement");
     };
 
     const surfaceMeasurement = () => {
-        setIconFunction(icons.mesure.surface);
+        setMeasureIcon(icons.mesure.surface);
         console.log("surface measurement");
     };
 
     const bufferMeasurement = () => {
-        setIconFunction(icons.mesure.buffer);
+        setMeasureIcon(icons.mesure.buffer);
         console.log("buffer measurement");
     };
 
     const translater = () => {
-        setIconFunction(icons.mesure.translater);
+        setMeasureIcon(icons.mesure.translater);
         console.log("translater");
     };
 
     const edit = () => {
-        setIconFunction(icons.mesure.modifier);
+        setMeasureIcon(icons.mesure.modifier);
         console.log("edit");
     };
 
-    return [distanceMeasurement, surfaceMeasurement, bufferMeasurement, translater, edit];
+    return [distanceMeasurement, surfaceMeasurement, bufferMeasurement, translater, edit, measureIcon];
 };
 
 export default useMeasure;

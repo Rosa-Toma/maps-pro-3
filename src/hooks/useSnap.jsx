@@ -1,27 +1,29 @@
+import { useState } from "react";
 import { icons } from "assets/icons/icons";
+const [snapIcon, setSnapIcon] = useState(icons.inactive.inactive);
 
-const useSnap = (setIconFunction) => {
+const useSnap = () => {
     const inactiveSnap = () => {
-        setIconFunction(icons.inactive.inactive);
+        setSnapIcon(icons.inactive.inactive);
         console.log("inactive");
     };
 
     const pointSnap = () => {
-        setIconFunction(icons.inactive.point);
+        setSnapIcon(icons.inactive.point);
         console.log("point");
     };
 
     const segmentSnap = () => {
-        setIconFunction(icons.inactive.segment);
+        setSnapIcon(icons.inactive.segment);
         console.log("segment");
     };
 
     const polylineSnap = () => {
-        setIconFunction(icons.inactive.polyligne);
+        setSnapIcon(icons.inactive.polyligne);
         console.log("polyline");
     };
 
-    return [inactiveSnap, pointSnap, segmentSnap, polylineSnap];
+    return [inactiveSnap, pointSnap, segmentSnap, polylineSnap, snapIcon];
 };
 
 export default useSnap;

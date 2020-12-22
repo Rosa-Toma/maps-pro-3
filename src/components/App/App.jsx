@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ThemeProvider } from "styled-components";
 import { GlobalStyles } from "styles/global";
 import { lightTheme, darkTheme } from "styles/theme";
@@ -11,19 +11,13 @@ import { MapContext } from "context/MapContext";
 const App = () => {
     const MAP = useContext(MapContext);
 
-    const [selectionIcon, setSelectionIcon] = useState(icons.selection.pointEtRectangle);
-    const [measureIcon, setMeasureIcon] = useState(icons.mesure.distance);
-    const [snapIcon, setSnapIcon] = useState(icons.inactive.inactive);
-    const [drawingIcon, setDrawingIcon] = useState(icons.dessin.base);
-    const [viewIcon, setViewIcon] = useState(icons.vue.streetView);
-
-    const [pointSelection, circleSelection, polygonSelection, freeSelection, undo, redo] = useStandard(setSelectionIcon);
+    const [pointSelection, circleSelection, polygonSelection, freeSelection, undo, redo, selectionIcon] = useStandard();
     const [panoter, zoomIn, zoomOut, recenter] = useNavigation(MAP);
-    const [distanceMeasurement, surfaceMeasurement, bufferMeasurement, translater, edit] = useMeasure(setMeasureIcon);
-    const [inactiveSnap, pointSnap, segmentSnap, polylineSnap] = useSnap(setSnapIcon);
-    const [circleDrawing, polylineDrawing, polygonDrawing] = useDrawing(setDrawingIcon);
+    const [distanceMeasurement, surfaceMeasurement, bufferMeasurement, translater, edit, measureIcon] = useMeasure();
+    const [inactiveSnap, pointSnap, segmentSnap, polylineSnap, snapIcon] = useSnap();
+    const [circleDrawing, polylineDrawing, polygonDrawing, drawingIcon] = useDrawing();
     const [tangentGuide, normalGuide] = useGuide();
-    const [mapState, streetView, bingMaps, geoserverBackground, theme, toggleTheme] = useDisplay(setViewIcon);
+    const [mapState, streetView, bingMaps, geoserverBackground, theme, toggleTheme, viewIcon] = useDisplay();
     const [hideLegend, displayLegend, hideSelection, displaySelection, hideTools, displayTools, hideLocalisation, displayLocalisation] = useDisplaySection();
 
     return (
