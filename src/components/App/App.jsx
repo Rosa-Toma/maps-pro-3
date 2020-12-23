@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext } from "react";
 import { ThemeProvider } from "styled-components";
 import { lightTheme, darkTheme } from "themes";
 import { Grid, HomeGrid, SearchGrid, InformationGrid, AcountGrid, GlobalStyles } from "./styles";
