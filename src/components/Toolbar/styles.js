@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledToolbar = styled.div`
+export const Container = styled.div`
     grid-area: toolbar;
     position: relative;
     resize: none;

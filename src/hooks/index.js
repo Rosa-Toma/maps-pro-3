@@ -6,3 +6,4 @@ export { default as useDrawing } from "./useDrawing";
 export { default as useGuide } from "./useGuide";
 export { default as useDisplay } from "./useDisplay";
 export { default as useDisplaySection } from "./useDisplaySection";
+export { default as useDisplayPage } from "./useDisplayPage";

@@ -1,7 +1,7 @@
-import { StyledToolbar } from "./styles";
+import { Container } from "./styles";
 
 const Toolbar = ({ children }) => {
-    return <StyledToolbar>{children}</StyledToolbar>;
+    return <Container>{children}</Container>;
 };
 
 export default Toolbar;

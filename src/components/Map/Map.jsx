@@ -1,15 +1,15 @@
-import { MapContainer } from "./styles";
+import { Container } from "./styles";
 import { useContext, useEffect } from "react";
 import { MapContext } from "context/MapContext";
 
 const Map = () => {
-    const map = useContext(MapContext);
+    const MAP = useContext(MapContext);
 
     useEffect(() => {
-        map.setTarget("map");
-    }, [map]);
+        MAP.setTarget("map");
+    }, [MAP]);
 
-    return <MapContainer id="map"></MapContainer>;
+    return <Container id="map"></Container>;
 };
 
 export default Map;

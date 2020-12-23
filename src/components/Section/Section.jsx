@@ -1,10 +1,10 @@
-import { StyledSection, Title } from "./styles";
+import { Title, Items } from "./styles";
 
 const Section = ({ children, title, ...props }) => {
     return (
         <div>
-            <Title>{title}</Title>
-            <StyledSection {...props}>{children}</StyledSection>
+            {title && <Title>{title}</Title>}
+            <Items {...props}>{children}</Items>
         </div>
     );
 };

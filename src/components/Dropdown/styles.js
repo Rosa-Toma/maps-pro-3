@@ -1,41 +1,20 @@
 import styled from "styled-components";
 
-export const StyledDiv = styled.div`
+export const Container = styled.div`
     display: flex;
-    flex-direction: ${({ sidebar }) => (sidebar ? "column" : "row")};
-
+    flex-direction: column;
     align-items: center;
-    user-select: none; /* standard syntax */
-
-    &:hover {
-        background-color: ${({ theme }) => theme.action.hover};
-        background-position: center;
-        transition: background 0.2s;
-    }
+    width: ${({ sidebar }) => (sidebar ? "100%" : "auto")};
+    padding: ${({ sidebar }) => (sidebar ? "5px" : "0")};
+    user-select: none;
 `;
 
-export const Childs = styled.div`
-    margin-top: 0;
-    width: ${({ sidebar }) => (sidebar ? "390px" : "auto")};
-    background-color: ${({ theme }) => theme.background.primary};
-    border: 1px solid ${({ theme }) => theme.divider};
-    z-index: 1;
-    position: ${({ sidebar }) => (sidebar ? "auto" : "absolute")};
-    top: ${({ sidebar }) => (sidebar ? "auto" : "85px")};
+export const Items = styled.div`
     display: ${({ isOpen }) => (isOpen ? "flex" : "none")};
     flex-direction: column;
-`;
-
-export const Icon = styled.div`
-    color: ${({ theme }) => theme.text.primary};
-`;
-
-export const Title = styled.h2`
-    color: ${({ theme }) => theme.text.primary};
-    font-size: 0.8em;
-    letter-spacing: 1px;
-    text-align: center;
-    text-transform: capitalize;
-    font-weight: lighter;
-    font-size: 11px;
+    position: ${({ sidebar }) => (sidebar ? "auto" : "absolute")};
+    top: ${({ sidebar }) => (sidebar ? "auto" : "85px")};
+    background-color: ${({ theme }) => theme.background.primary};
+    border: 1px solid ${({ theme }) => theme.divider};
+    width: ${({ sidebar }) => (sidebar ? "100%" : "auto")};
 `;
