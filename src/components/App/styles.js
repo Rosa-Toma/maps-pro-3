@@ -15,7 +15,7 @@ export const GlobalStyles = createGlobalStyle`
     font-family: verdana;
   }`;
 
-export const Grid = styled.div`
+export const Layout = styled.div`
     display: grid;
     grid-template-areas:
         "header"
@@ -24,7 +24,8 @@ export const Grid = styled.div`
     grid-template-rows: 50px calc(100vh - 50px);
 `;
 
-export const HomeGrid = styled.div`
+
+export const HomePageLayout = styled.div`
     grid-area: main;
     display: ${({ active }) => (active ? "grid" : "none")};
     grid-template-areas:
@@ -35,19 +36,19 @@ export const HomeGrid = styled.div`
     grid-template-rows: 100px calc(100vh - 150px);
 `;
 
-export const SearchGrid = styled.div`
+export const SearchPagelayout = styled.div`
     grid-area: main;
 
     display: ${({ active }) => (active ? "grid" : "none")};
 `;
 
-export const InformationGrid = styled.div`
+export const InformationPageLayout = styled.div`
     grid-area: main;
 
     display: ${({ active }) => (active ? "grid" : "none")};
 `;
 
-export const AcountGrid = styled.div`
+export const AccountPageLayout = styled.div`
     grid-area: main;
 
     display: ${({ active }) => (active ? "grid" : "none")};
