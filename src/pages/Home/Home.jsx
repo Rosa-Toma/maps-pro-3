@@ -1,7 +1,7 @@
 import { icons } from "assets/icons/icons";
 import { useContext } from "react";
 import { Map, Button, Section, Sidebar, Toolbar, Dropdown } from "components";
-import { useStandard, useNavigation, useMeasure, useSnap, useDrawing, useGuide, useDisplay, useDisplaySection, useDisplayPage } from "hooks";
+import { useStandard, useNavigation, useMeasure, useSnap, useDrawing, useGuide, useDisplay, useDisplaySection } from "hooks";
 import { MapContext } from "context/MapContext";
 
 const Home = () => {
