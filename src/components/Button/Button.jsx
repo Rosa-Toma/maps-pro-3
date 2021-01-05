@@ -1,13 +1,13 @@
-import { StyledButton, Title } from "./styles";
+import { Container, Title } from "./styles";
 
 const Button = ({ ...props }) => {
     return (
-        <StyledButton {...props}>
+        <Container {...props}>
             <span>
                 {props.icon} {props.dropdown && props.dropdown}
             </span>
             <Title>{props.title}</Title>
-        </StyledButton>
+        </Container>
     );
 };
 

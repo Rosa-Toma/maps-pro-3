@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const StyledButton = styled.button`
+export const Container = styled.button`
     display: flex;
     flex-direction: ${({ sidebar }) => (sidebar ? "row-reverse" : "column")};
     justify-content: ${({ sidebar }) => (sidebar ? "space-between" : "center")};

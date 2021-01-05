@@ -1,40 +1,40 @@
 import { useState } from "react";
 
 const useDisplayPage = () => {
-    const [activeHome, setActiveHome] = useState(true);
-    const [activeSearch, setActiveSearch] = useState(false);
-    const [activeInformation, setActiveInformation] = useState(false);
-    const [activeAcount, setActiveAcount] = useState(false);
+    const [isHomePageActive, setIsHomePageActive] = useState(true);
+    const [isSearchPageActive, setIsSearchPageActive] = useState(false);
+    const [isInformationPageActive, setIsInformationPageActive] = useState(false);
+    const [isAccountPageActive, setIsAccountPageActive] = useState(false);
 
-    const displayHome = () => {
-        setActiveHome(true);
-        setActiveSearch(false);
-        setActiveInformation(false);
-        setActiveAcount(false);
+    const displayHomePage = () => {
+        setIsHomePageActive(true);
+        setIsSearchPageActive(false);
+        setIsInformationPageActive(false);
+        setIsAccountPageActive(false);
     };
 
-    const displaySearch = () => {
-        setActiveHome(false);
-        setActiveSearch(true);
-        setActiveInformation(false);
-        setActiveAcount(false);
+    const displaySearchPage = () => {
+        setIsHomePageActive(false);
+        setIsSearchPageActive(true);
+        setIsInformationPageActive(false);
+        setIsAccountPageActive(false);
     };
 
-    const displayInformation = () => {
-        setActiveHome(false);
-        setActiveSearch(false);
-        setActiveInformation(true);
-        setActiveAcount(false);
+    const displayInformationPage = () => {
+        setIsHomePageActive(false);
+        setIsSearchPageActive(false);
+        setIsInformationPageActive(true);
+        setIsAccountPageActive(false);
     };
 
-    const displayAcount = () => {
-        setActiveHome(false);
-        setActiveSearch(false);
-        setActiveInformation(false);
-        setActiveAcount(true);
+    const displayAccountPage = () => {
+        setIsHomePageActive(false);
+        setIsSearchPageActive(false);
+        setIsInformationPageActive(false);
+        setIsAccountPageActive(true);
     };
 
-    return [activeHome, displayHome, activeSearch, displaySearch, activeInformation, displayInformation, activeAcount, displayAcount];
+    return [isHomePageActive, displayHomePage, isSearchPageActive, displaySearchPage, isInformationPageActive, displayInformationPage, isAccountPageActive, displayAccountPage];
 };
 
 export default useDisplayPage;
